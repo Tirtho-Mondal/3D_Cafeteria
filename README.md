@@ -105,7 +105,7 @@ The cafeteria scene is built using basic geometric primitives such as cubes and 
 Transformations are applied through matrix operations. The combined modeling transformation is expressed as:
 
 ```math
-M = T · R · S
+M = T \cdot R \cdot S
 ```
 
 where:
@@ -143,13 +143,13 @@ Each object contributes to the realism and completeness of the environment. Stru
 Texture mapping is applied to improve the realism of walls, floors, and table surfaces. In texture mapping, every vertex is assigned texture coordinates `(u, v)` that map a two-dimensional image onto a three-dimensional object.
 
 ```math
-(u,v) ∈ [0,1]
+(u,v) \in [0,1]
 ```
 
 The final surface color can be represented conceptually as:
 
 ```math
-C_final = C_material × C_texture
+C_{\text{final}} = C_{\text{material}} \times C_{\text{texture}}
 ```
 
 This means that the material color and the sampled texture combine to produce the final appearance of the surface. The project includes three display modes: material only, texture only, and blended texture mode. This makes it possible to compare how textures enhance realism.
@@ -181,7 +181,7 @@ The project compares Gouraud shading and Phong shading to demonstrate different 
 The overall illumination model used in the project can be written as:
 
 ```math
-I = k_a I_a + k_d (N · L) + k_s (R · V)^n
+I = k_a I_a + k_d (N \cdot L) + k_s (R \cdot V)^n
 ```
 
 where:
@@ -208,7 +208,7 @@ The project demonstrates visual differences between Gouraud shading and Phong sh
 Ambient light gives a constant minimum illumination to all surfaces, preventing them from becoming completely dark.
 
 ```math
-I_ambient = k_a I_a
+I_{\text{ambient}} = k_a I_a
 ```
 
 ### Diffuse Light
@@ -216,7 +216,7 @@ I_ambient = k_a I_a
 Diffuse lighting follows Lambert's cosine law and depends on the angle between the normal and the light direction.
 
 ```math
-I_diffuse = k_d I_l max(0, N · L)
+I_{\text{diffuse}} = k_d I_l \max(0, N \cdot L)
 ```
 
 This component makes surfaces brighter when facing the light and darker when tilted away.
@@ -226,7 +226,7 @@ This component makes surfaces brighter when facing the light and darker when til
 Specular lighting produces the shiny highlight effect on reflective surfaces.
 
 ```math
-I_specular = k_s I_l (R · V)^n
+I_{\text{specular}} = k_s I_l (R \cdot V)^n
 ```
 
 A larger value of `n` creates a sharper highlight.
@@ -236,7 +236,7 @@ A larger value of `n` creates a sharper highlight.
 Point light intensity decreases with distance. This is modeled as:
 
 ```math
-I = 1 / (k_c + k_l d + k_q d^2)
+I = \frac{1}{k_c + k_l d + k_q d^2}
 ```
 
 where:
@@ -282,7 +282,7 @@ This equation generates a smooth parametric curve starting from `P_0` and ending
 To convert the 2D Bezier profile into a 3D object, a surface of revolution is used:
 
 ```math
-x = r cos θ
+x = r \cos\theta
 ```
 
 ```math
@@ -290,7 +290,7 @@ y = h
 ```
 
 ```math
-z = r sin θ
+z = r \sin\theta
 ```
 
 Here:
@@ -315,7 +315,7 @@ The project uses recursive fractal techniques to generate realistic tree structu
 The branch length follows the recursive formula:
 
 ```math
-L_{d+1} = s_L · L_d
+L_{d+1} = s_L \cdot L_d
 ```
 
 where:
@@ -325,7 +325,7 @@ where:
 Similarly, branch thickness is reduced recursively by:
 
 ```math
-T_{d+1} = s_T · T_d
+T_{d+1} = s_T \cdot T_d
 ```
 
 where:
@@ -335,11 +335,11 @@ where:
 Branch direction is controlled by yaw and tilt angles:
 
 ```math
-θ_yaw = θ_base + Δθ
+\theta_{\text{yaw}} = \theta_{\text{base}} + \Delta\theta
 ```
 
 ```math
-θ_tilt = θ_min + Δθ
+\theta_{\text{tilt}} = \theta_{\text{min}} + \Delta\theta
 ```
 
 The yaw angle controls the horizontal spread of branches, while the tilt angle controls how much the branch bends upward.
@@ -347,7 +347,7 @@ The yaw angle controls the horizontal spread of branches, while the tilt angle c
 Wind motion is simulated with a sine function:
 
 ```math
-θ = A sin φ
+\theta = A \sin\phi
 ```
 
 where:
@@ -371,7 +371,7 @@ The project includes animated people whose motion is controlled mainly by trigon
 The general oscillatory motion is written as:
 
 ```math
-θ = A sin(t)
+\theta = A \sin(t)
 ```
 
 where:
@@ -382,11 +382,11 @@ where:
 For walking, the left and right legs move in opposite phase:
 
 ```math
-θ_L = 35 sin(t)
+\theta_L = 35 \sin(t)
 ```
 
 ```math
-θ_R = 35 sin(t + π)
+\theta_R = 35 \sin(t + \pi)
 ```
 
 This phase difference of `π` ensures that while one leg moves forward, the other moves backward.
@@ -394,23 +394,23 @@ This phase difference of `π` ensures that while one leg moves forward, the othe
 Knee bending can be represented as a conditional expression:
 
 ```math
-knee angle =
-{
--1.5θ_L, if the leg is backward
-0, otherwise
-}
+\text{knee angle} =
+\begin{cases}
+-1.5\theta_L, & \text{if the leg is backward} \\
+0, & \text{otherwise}
+\end{cases}
 ```
 
 Arm movement is opposite to leg motion, which reflects natural human gait:
 
 ```math
-θ_arm = -0.8 × θ_leg
+\theta_{\text{arm}} = -0.8 \times \theta_{\text{leg}}
 ```
 
 The position of a moving character is updated using:
 
 ```math
-P_new = P_old + v⃗ · Δt
+P_{\text{new}} = P_{\text{old}} + \vec{v} \cdot \Delta t
 ```
 
 where:
@@ -432,41 +432,39 @@ These equations allow the animated people to move smoothly and realistically in 
 The falling leaf system combines gravity, flutter, and wind motion to simulate natural leaf movement.
 
 The vertical velocity decreases due to gravity:
-
 ```math
-v_y = v_y - 0.8 Δt
+v_y = v_y - 0.8\Delta t
 ```
 
 To create a fluttering effect, an oscillatory term is added:
 
 ```math
-v_y = v_y + 0.15 Δt sin(3ω · Time + θ)
+v_y = v_y + 0.15\Delta t \sin(3\omega \cdot \text{Time} + \theta)
 ```
 
 Wind affects the horizontal movement in the `x` and `z` directions:
 
 ```math
-v_x = 0.08 ω_str sin(2ω · Time + 0.01θ)
+v_x = 0.08\omega_{\text{str}} \sin(2\omega \cdot \text{Time} + 0.01\theta)
 ```
 
 ```math
-v_z = 0.05 ω_str cos(1.5ω · Time + 0.02θ)
+v_z = 0.05\omega_{\text{str}} \cos(1.5\omega \cdot \text{Time} + 0.02\theta)
 ```
 
 The updated position of a leaf becomes:
 
 ```math
-x_new = x + v_x Δt
+x_{\text{new}} = x + v_x\Delta t
 ```
 
 ```math
-y_new = y + v_y Δt
+y_{\text{new}} = y + v_y\Delta t
 ```
 
 ```math
-z_new = z + v_z Δt
+z_{\text{new}} = z + v_z\Delta t
 ```
-
 These equations produce a more realistic effect than simple straight downward motion, because the leaves drift sideways and flutter as they fall.
 
 <div align="center">
@@ -494,13 +492,13 @@ where:
 For movement toward a target, the update equation is:
 
 ```math
-P(t + Δt) = P(t) + d̂ · v · Δt
+P(t + \Delta t) = P(t) + \hat{d} \cdot v \cdot \Delta t
 ```
 
 where `d̂` is the normalized direction vector:
 
 ```math
-d̂ = (P_target - P) / |P_target - P|
+\hat{d} = \frac{P_{\text{target}} - P}{\left|P_{\text{target}} - P\right|}
 ```
 
 This ensures that the cat always moves toward the current target point.
@@ -508,11 +506,11 @@ This ensures that the cat always moves toward the current target point.
 The tail and leg movement are controlled by sine-based animation:
 
 ```math
-θ_tail = A sin(φ)
+\theta_{\text{tail}} = A \sin(\phi)
 ```
 
 ```math
-θ_leg = A sin(2φ)
+\theta_{\text{leg}} = A \sin(2\phi)
 ```
 
 These equations create rhythmic motion and make the cat appear more natural and alive.
