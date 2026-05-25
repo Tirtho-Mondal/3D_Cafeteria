@@ -524,8 +524,25 @@ These equations create rhythmic motion and make the cat appear more natural and 
 </div>
 
 ---
+## 13. Demo Video
 
-## 13. Results and Discussion
+The following demo video presents the real-time execution of the 3D Cafeteria Simulation, including scene navigation, lighting effects, texture mapping, and animation systems.
+
+<p align="center">
+  <a href="https://youtu.be/Wd2I3ZZhzAI">
+    <img src="https://img.youtube.com/vi/Wd2I3ZZhzAI/0.jpg"
+         alt="3D Cafeteria Simulation Demo"
+         width="700">
+  </a>
+</p>
+
+<p align="center">
+<b>Demo Video:</b> Real-time 3D Cafeteria Simulation.
+</p>
+
+---
+
+## 14. Results and Discussion
 
 The project successfully demonstrates a realistic and interactive 3D cafeteria environment. It integrates transformations, texture mapping, multiple lighting effects, shading models, Bezier curve modeling, fractal tree generation, and animation systems into a single real-time application.
 
@@ -535,7 +552,7 @@ Overall, the project is a practical and technically rich implementation of compu
 
 ---
 
-## 14. Conclusion
+## 15. Conclusion
 
 In conclusion, the 3D Cafeteria Simulation project effectively combines geometric modeling, transformations, texture mapping, lighting, shading, Bezier surface generation, fractal modeling, and animation into a complete real-time graphics application. The work demonstrates how mathematical equations can be applied directly to visual simulation in computer graphics.
 
@@ -543,7 +560,7 @@ The project not only fulfills the stated objectives but also provides a strong f
 
 ---
 
-## 15. References
+## 16. References
 
 1. Lab lecture slides.
 2. [OpenGL Reference Pages](https://registry.khronos.org/OpenGL-Refpages/gl4/)
