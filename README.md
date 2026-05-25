@@ -1,32 +1,10 @@
 <div align="center">
 
-# 3D Cafeteria Simulation
+# 3D Cafeteria
 
 </div>
 
 ---
-
-## Khulna University of Engineering & Technology
-### Department of Computer Science and Engineering
-### CSE 4208: Computer Graphics Laboratory
-
----
-
-<div style="border:1px solid #d0d7de; padding:15px; border-radius:10px; background-color:#f8f9fa;">
-
-## Submitted To
-- **Dr. Sk. Md. Masudul Ahsan**  
-  Professor, Department of CSE, KUET
-
-- **Md. Tajmilur Rahman**  
-  Lecturer, Department of CSE, KUET
-
-## Submitted By
-- **Tirtho Mondal**  
-  Roll: 2007117  
-  4th Year, 2nd Semester
-
-</div>
 
 ---
 
