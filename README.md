@@ -1,16 +1,19 @@
-<div align="center">
+# 3D Cafeteria Simulation
 
-# 3D Cafeteria
-
-</div>
+**Project Report**
 
 ---
 
+## Abstract
+
+This report presents a real-time 3D cafeteria simulation developed using OpenGL. The project demonstrates scene construction, transformation, texture mapping, lighting, shading, Bezier curve modeling, fractal tree generation, and animation systems. The final environment includes indoor and outdoor cafeteria elements, animated humans, a moving cat, falling leaves, and procedurally modeled natural objects.
+
 ---
 
-# Table of Contents
+### Table of Contents
 
-1. [Introduction](#introduction)
+1. [Abstract](#abstract)
+2. [Introduction](#1-introduction)
 2. [Objectives](#objectives)
 3. [Tools and Technologies Used](#tools-and-technologies-used)
 4. [Transformation and Scene Construction](#transformation-and-scene-construction)
@@ -20,7 +23,7 @@
 8. [Bezier Curve Modeling](#bezier-curve-modeling)
 9. [Fractal Tree Generation](#fractal-tree-generation)
 10. [Human Walking Animation](#human-walking-animation)
-11. [Falling Leafs Simulation](#falling-leafs-simulation)
+11. [Falling Leaves Simulation](#falling-leafs-simulation)
 12. [Cat Movement System](#cat-movement-system)
 13. [Results and Discussion](#results-and-discussion)
 14. [Conclusion](#conclusion)
@@ -29,7 +32,7 @@
 
 ---
 
-# List of Figures
+## List of Figures
 
 | **Figure No.** | **Figure Title** |
 |---|---|
@@ -49,34 +52,26 @@
 
 ---
 
-<span style="color:#1F4E79">
-
-# 1. Introduction
-
-</span>
+## 1. Introduction
 
 The 3D Cafeteria Simulation project is a real-time computer graphics implementation developed with OpenGL. The main goal of the project is to create a realistic university cafeteria environment that includes both indoor and outdoor components. The scene contains tables, chairs, counters, animated people, a moving cat, Bezier-modeled tableware, trees, and falling leaves. Rather than presenting a static scene, the project integrates mathematical modeling, graphical rendering, and animation techniques to simulate a dynamic real-world environment.
 
 The strength of the project lies in combining multiple graphics concepts in one application. Geometric primitives are used to construct complex objects, lighting and shading models are used for realism, textures improve surface quality, and mathematical equations control motion and procedural generation. As a result, the project demonstrates how computer graphics can combine modeling, illumination, and animation into a complete real-time visual simulation.
 
 <div align="center">
-  <img src="image/main view of cafe.png" width="85%">
+  <img src="image/main view of cafe.png" alt="main view of cafe" width="85%">
   <br>
   <b><span style="color:#1F4E79">Figure 1:</span></b> <span style="color:#444">Overall cafeteria scene.</span>
 </div>
 
 ---
 
-<span style="color:#1F4E79">
+## 2. Objectives
 
-# 2. Objectives
-
-</span>
-
-## Global Objective
+### Global Objective
 - To develop a realistic and interactive 3D university cafeteria simulation using OpenGL.
 
-## Specific Objectives
+### Specific Objectives
 - To build a complete cafeteria scene using geometric primitives.
 - To apply transformations such as translation, rotation, and scaling.
 - To implement lighting and shading models for realistic rendering.
@@ -86,11 +81,7 @@ The strength of the project lies in combining multiple graphics concepts in one 
 
 ---
 
-<span style="color:#1F4E79">
-
-# 3. Tools and Technologies Used
-
-</span>
+## 3. Tools and Technologies Used
 
 The implementation of the project relies on several tools and libraries that support rendering, mathematical computation, interaction, and texture loading.
 
@@ -107,11 +98,7 @@ These tools collectively make it possible to manage transformations, textures, s
 
 ---
 
-<span style="color:#1F4E79">
-
-# 4. Transformation and Scene Construction
-
-</span>
+## 4. Transformation and Scene Construction
 
 The cafeteria scene is built using basic geometric primitives such as cubes and cylinders. Complex objects like chairs, tables, counters, columns, and decorative structures are formed by combining these primitives hierarchically. This approach allows small reusable components to be assembled into larger scene elements.
 
@@ -132,11 +119,7 @@ The project scene contains walls, floor, ceiling, service areas, seating arrange
 
 ---
 
-<span style="color:#1F4E79">
-
-# 5. Objects Used in the Scene
-
-</span>
+## 5. Objects Used in the Scene
 
 The simulation contains a wide range of objects that together build a complete cafeteria environment. These objects can be categorized into structural, furniture, service, decorative, natural, animated, and outdoor objects.
 
@@ -155,11 +138,7 @@ Each object contributes to the realism and completeness of the environment. Stru
 
 ---
 
-<span style="color:#1F4E79">
-
-# 6. Texture Mapping
-
-</span>
+## 6. Texture Mapping
 
 Texture mapping is applied to improve the realism of walls, floors, and table surfaces. In texture mapping, every vertex is assigned texture coordinates `(u, v)` that map a two-dimensional image onto a three-dimensional object.
 
@@ -176,30 +155,26 @@ C_final = C_material × C_texture
 This means that the material color and the sampled texture combine to produce the final appearance of the surface. The project includes three display modes: material only, texture only, and blended texture mode. This makes it possible to compare how textures enhance realism.
 
 <div align="center">
-  <img src="image/wall texture.png" width="85%">
+  <img src="image/wall texture.png" alt="wall texture" width="85%">
   <br>
   <b><span style="color:#1F4E79">Figure 2:</span></b> <span style="color:#444">Wall texture comparison in different rendering modes.</span>
 </div>
 
 <div align="center">
-  <img src="image/floor.png" width="85%">
+  <img src="image/floor.png" alt="floor" width="85%">
   <br>
   <b><span style="color:#1F4E79">Figure 3:</span></b> <span style="color:#444">Floor texture comparison in different rendering modes.</span>
 </div>
 
 <div align="center">
-  <img src="image/table cloth.png" width="85%">
+  <img src="image/table cloth.png" alt="table cloth" width="85%">
   <br>
   <b><span style="color:#1F4E79">Figure 4:</span></b> <span style="color:#444">Table cloth texture comparison in different rendering modes.</span>
 </div>
 
 ---
 
-<span style="color:#1F4E79">
-
-# 7. Shader, Lighting, and Shading
-
-</span>
+## 7. Shader, Lighting, and Shading
 
 The project compares Gouraud shading and Phong shading to demonstrate different lighting techniques. In Gouraud shading, lighting is calculated at the vertices and interpolated across the polygon. In Phong shading, normals are interpolated and lighting is computed per fragment, producing more accurate highlights and smoother appearance.
 
@@ -218,17 +193,17 @@ where:
 - `V` is the view direction vector
 - `n` is the shininess exponent
 
-## Shader Comparison
+### Shader Comparison
 
 The project demonstrates visual differences between Gouraud shading and Phong shading.
 
 <div align="center">
-  <img src="image/shading comparison.png" width="82%">
+  <img src="image/shading comparison.png" alt="shading comparison" width="82%">
   <br>
   <b><span style="color:#1F4E79">Figure 5:</span></b> <span style="color:#444">Comparison between Gouraud shading and Phong shading.</span>
 </div>
 
-## Ambient Light
+### Ambient Light
 
 Ambient light gives a constant minimum illumination to all surfaces, preventing them from becoming completely dark.
 
@@ -236,7 +211,7 @@ Ambient light gives a constant minimum illumination to all surfaces, preventing 
 I_ambient = k_a I_a
 ```
 
-## Diffuse Light
+### Diffuse Light
 
 Diffuse lighting follows Lambert's cosine law and depends on the angle between the normal and the light direction.
 
@@ -246,7 +221,7 @@ I_diffuse = k_d I_l max(0, N · L)
 
 This component makes surfaces brighter when facing the light and darker when tilted away.
 
-## Specular Light
+### Specular Light
 
 Specular lighting produces the shiny highlight effect on reflective surfaces.
 
@@ -256,7 +231,7 @@ I_specular = k_s I_l (R · V)^n
 
 A larger value of `n` creates a sharper highlight.
 
-## Point Light Attenuation
+### Point Light Attenuation
 
 Point light intensity decreases with distance. This is modeled as:
 
@@ -271,30 +246,26 @@ where:
 This lighting system allows the project to simulate directional light, point light, ambient light, and specular effects in a realistic way.
 
 <div align="center">
-  <img src="image/dir and point.png" width="82%">
+  <img src="image/dir and point.png" alt="dir and point" width="82%">
   <br>
   <b><span style="color:#1F4E79">Figure 6:</span></b> <span style="color:#444">Directional light and point light results.</span>
 </div>
 
 <div align="center">
-  <img src="image/amb vs spot.png" width="82%">
+  <img src="image/amb vs spot.png" alt="amb vs spot" width="82%">
   <br>
   <b><span style="color:#1F4E79">Figure 7:</span></b> <span style="color:#444">Ambient light and Spot light visual effects.</span>
 </div>
 
 <div align="center">
-  <img src="image/specular lig.png" width="82%">
+  <img src="image/specular lig.png" alt="specular lig" width="82%">
   <br>
   <b><span style="color:#1F4E79">Figure 8:</span></b> <span style="color:#444">Effect of turning specular light off and on.</span>
 </div>
 
 ---
 
-<span style="color:#1F4E79">
-
-# 8. Bezier Curve Modeling
-
-</span>
+## 8. Bezier Curve Modeling
 
 Smooth curved objects such as the bottle, cup, plate, and leaf are created using cubic Bezier curves. A cubic Bezier curve is defined as:
 
@@ -330,18 +301,14 @@ Here:
 This method creates smooth 3D surfaces suitable for rotationally symmetric objects like plates, bottles, and cups.
 
 <div align="center">
-  <img src="image/besizer.png" width="82%">
+  <img src="image/besizer.png" alt="besizer" width="82%">
   <br>
   <b><span style="color:#1F4E79">Figure 9:</span></b> <span style="color:#444">Bezier curve modeling for bottle, cup, plate, and leaf.</span>
 </div>
 
 ---
 
-<span style="color:#1F4E79">
-
-# 9. Fractal Tree Generation
-
-</span>
+## 9. Fractal Tree Generation
 
 The project uses recursive fractal techniques to generate realistic tree structures. Fractal trees are constructed by repeatedly creating smaller child branches from parent branches.
 
@@ -390,18 +357,14 @@ where:
 This creates a natural oscillating sway in the branches.
 
 <div align="center">
-  <img src="image/Fractal tree.png" width="82%">
+  <img src="image/Fractal tree.png" alt="Fractal tree" width="82%">
   <br>
   <b><span style="color:#1F4E79">Figure 10:</span></b> <span style="color:#444">Fractal tree.</span>
 </div>
 
 ---
 
-<span style="color:#1F4E79">
-
-# 10. Human Walking Animation
-
-</span>
+## 10. Human Walking Animation
 
 The project includes animated people whose motion is controlled mainly by trigonometric functions. Human walking is periodic, so sine functions are suitable for representing smooth and repeated movement.
 
@@ -457,18 +420,14 @@ where:
 These equations allow the animated people to move smoothly and realistically in the cafeteria environment.
 
 <div align="center">
-  <img src="image/waking motion man.png" width="70%">
+  <img src="image/waking motion man.png" alt="waking motion man" width="70%">
   <br>
   <b><span style="color:#1F4E79">Figure 11:</span></b> <span style="color:#444">Human movement.</span>
 </div>
 
 ---
 
-<span style="color:#1F4E79">
-
-# 11. Falling Leafs Simulation
-
-</span>
+## 11. Falling Leaves Simulation
 
 The falling leaf system combines gravity, flutter, and wind motion to simulate natural leaf movement.
 
@@ -511,18 +470,14 @@ z_new = z + v_z Δt
 These equations produce a more realistic effect than simple straight downward motion, because the leaves drift sideways and flutter as they fall.
 
 <div align="center">
-  <img src="image/falling leaves.png" width="70%">
+  <img src="image/falling leaves.png" alt="falling leaves" width="70%">
   <br>
   <b><span style="color:#1F4E79">Figure 12:</span></b> <span style="color:#444">Falling leaf from tree.</span>
 </div>
 
 ---
 
-<span style="color:#1F4E79">
-
-# 12. Cat Movement System
-
-</span>
+## 12. Cat Movement System
 
 The project includes a moving cat as an animated object in the environment. The cat moves on the `x-z` plane and follows target-based directional motion.
 
@@ -563,18 +518,14 @@ The tail and leg movement are controlled by sine-based animation:
 These equations create rhythmic motion and make the cat appear more natural and alive.
 
 <div align="center">
-  <img src="image/cat.png" width="60%">
+  <img src="image/cat.png" alt="cat" width="60%">
   <br>
   <b><span style="color:#1F4E79">Figure 13:</span></b> <span style="color:#444">Cat movement.</span>
 </div>
 
 ---
 
-<span style="color:#1F4E79">
-
-# 13. Results and Discussion
-
-</span>
+## 13. Results and Discussion
 
 The project successfully demonstrates a realistic and interactive 3D cafeteria environment. It integrates transformations, texture mapping, multiple lighting effects, shading models, Bezier curve modeling, fractal tree generation, and animation systems into a single real-time application.
 
@@ -584,11 +535,7 @@ Overall, the project is a practical and technically rich implementation of compu
 
 ---
 
-<span style="color:#1F4E79">
-
-# 14. Conclusion
-
-</span>
+## 14. Conclusion
 
 In conclusion, the 3D Cafeteria Simulation project effectively combines geometric modeling, transformations, texture mapping, lighting, shading, Bezier surface generation, fractal modeling, and animation into a complete real-time graphics application. The work demonstrates how mathematical equations can be applied directly to visual simulation in computer graphics.
 
@@ -596,14 +543,10 @@ The project not only fulfills the stated objectives but also provides a strong f
 
 ---
 
-<span style="color:#1F4E79">
+## 15. References
 
-# 15. References
-
-</span>
-
-1. Lab Lecture Slide
-2. https://registry.khronos.org/OpenGL-Refpages/gl4/
-3. https://www.glfw.org/documentation
-4. https://glm.g-truc.net/0.9.9/api/index.html
+1. Lab lecture slides.
+2. [OpenGL Reference Pages](https://registry.khronos.org/OpenGL-Refpages/gl4/)
+3. [GLFW Documentation](https://www.glfw.org/documentation)
+4. [GLM API Documentation](https://glm.g-truc.net/0.9.9/api/index.html)
 
